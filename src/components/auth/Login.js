@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Input from '../common/Input';
 import { useFormik } from 'formik';
 import { inputFieldsLogin } from '../../utils/DataHelpers';
+import { Link } from 'react-router-dom';
 
 const loginSchema = Yup.object().shape({
 	email: Yup.string().email('Invalid email').required('Required'),
@@ -10,7 +11,6 @@ const loginSchema = Yup.object().shape({
 });
 
 const Login = () => {
-	const [auth, setAuth] = useState();
 	const formik = useFormik({
 		initialValues: {
 			email: '',
@@ -19,10 +19,7 @@ const Login = () => {
 		validationSchema: loginSchema,
 		onSubmit: (values) => {},
 	});
-	useEffect(() => {
-		setAuth(JSON.parse(localStorage.getItem('user')));
-	}, []);
-	console.log(auth);
+
 	return (
 		<>
 			<h2>Login to your account</h2>
@@ -31,7 +28,9 @@ const Login = () => {
 					<Input key={input?.name} label={input?.label} name={input?.name} type={input?.type} formik={formik} />
 				))}
 				<button type='submit'>SUBMIT</button>
-				<p>New user? SignUp </p>
+				<p>
+					New user? <Link to={'/signup'}>SignUp</Link>
+				</p>
 			</form>
 		</>
 	);

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Input from '../common/Input';
 import { useFormik } from 'formik';
 import { inputFieldsSignUp } from '../../utils/DataHelpers';
+import { Link } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
 	firstName: Yup.string().required('Required'),
@@ -40,7 +41,9 @@ const Signup = () => {
 					<Input key={input?.name} label={input?.label} name={input?.name} type={input?.type} formik={formik} />
 				))}
 				<button type='submit'>SUBMIT</button>
-				<p>Already have account!. Login Here</p>
+				<p>
+					Already have account!? <Link to={'/'}>Login</Link> Here
+				</p>
 			</form>
 		</>
 	);
