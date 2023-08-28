@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../services/api';
+import { fetchTvShows } from '../../services/api';
+import List from '../common/List';
 import Pagination from '../pagination/Pagination';
-import List from './List';
 
-const Listing = () => {
+const TvShowsListing = () => {
 	const [response, setResponse] = useState();
 	const [page, setPage] = useState(1);
 
 	const getList = async () => {
-		const data = await fetchData({ page });
+		const data = await fetchTvShows();
 		setResponse(data?.data);
+		console.log('rees ', data);
 	};
-	console.log('first ', response);
+
 	useEffect(() => {
 		try {
 			const data = getList();
@@ -20,14 +21,13 @@ const Listing = () => {
 			console.log('error', error);
 		}
 	}, [page]);
-
 	return (
 		<div className='listingWrapper'>
-			<h1>Listing</h1>
-			<List data={response} />
+			<h1>TV Shows</h1>
+			<List data={response} category={'tv'} />
 			<Pagination page={page} setPage={setPage} totalPages={response?.total_pages} />
 		</div>
 	);
 };
 
-export default Listing;
+export default TvShowsListing;

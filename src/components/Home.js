@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './header/Header';
-import Listing from './common/Listing';
+import MovieListing from './listings/MovieListing';
+import TvShowsListing from './listings/TvShowsListing';
+import DetailsModal from './modals/DetailsModal';
 
 const Home = () => {
 	return (
 		<>
 			<Header />
-			<Listing />
+			<MovieListing />
+			<TvShowsListing />
 		</>
 	);
 };
