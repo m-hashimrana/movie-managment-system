@@ -169,6 +169,15 @@ body {
 				border-radius: 20px;
 				padding: 10px;
 				display: flex;
+				.loader {
+					position: relative;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
 				.detailImageWrapper {
 					flex: 0 0 45%;
 					width: 45%;
@@ -179,10 +188,14 @@ body {
 					}
 				}
 				.details {
+					flex: 1;
+					overflow-y: scroll;
 					span {
 						font-size: 12px;
 					}
-					flex: 1;
+					h3 {
+						margin: 5px 0;
+					}
 					.modalEnrtyName {
 						font-size: 32px;
 						text-align: left;
@@ -194,6 +207,17 @@ body {
 						margin-right: 20px;
 						padding: 2px 5px;
 						border-radius: 10px;
+					}
+					.seasonAttributes {
+						display: flex;
+						align-items: center;
+						margin-top: 10px;
+						h5 {
+							flex: 0 0 60%;
+						}
+						h6 {
+							flex: 1;
+						}
 					}
 				}
 			}

@@ -5,11 +5,14 @@ import DetailsModal from '../modals/DetailsModal';
 const List = ({ data, category }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [modalData, setModalData] = useState();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const imageUrl = `${process.env.REACT_APP_IMAGE_URL}`;
 	const handleCardClick = async (id) => {
 		setIsOpen(true);
+		setIsLoading(true);
 		const res = await fetchDetails(id, category);
+		setIsLoading(false);
 		setModalData(res?.data);
 	};
 
@@ -32,7 +35,14 @@ const List = ({ data, category }) => {
 					})}
 				</div>
 			</div>
-			<DetailsModal isModalOpen={isOpen} setIsModalOpen={setIsOpen} data={modalData} category={category} />
+			<DetailsModal
+				isModalOpen={isOpen}
+				setIsModalOpen={setIsOpen}
+				data={modalData}
+				category={category}
+				setData={setModalData}
+				isLoading={isLoading}
+			/>
 		</>
 	);
 };
