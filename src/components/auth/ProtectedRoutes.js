@@ -1,9 +1,20 @@
-import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ProtectedRoutes = ({ isLoggedIn, children }) => {
-	if (!isLoggedIn) return <Navigate to='/login' replace />;
-	return children;
+const ProtectedRoutes = (props) => {
+	const { Component } = props;
+	const navigate = useNavigate();
+	useEffect(() => {
+		const authenticateduser = localStorage.getItem('user');
+
+		if (!authenticateduser) navigate('/login');
+	});
+
+	return (
+		<>
+			<Component />
+		</>
+	);
 };
 
 export default ProtectedRoutes;

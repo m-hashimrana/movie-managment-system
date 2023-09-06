@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Input from '../common/Input';
 import { useFormik } from 'formik';
 import { inputFieldsSignUp } from '../../utils/DataHelpers';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
 	firstName: Yup.string().required('Required'),
@@ -19,6 +19,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Signup = () => {
+	const navigate = useNavigate();
 	const formik = useFormik({
 		initialValues: {
 			firstName: '',
@@ -31,6 +32,7 @@ const Signup = () => {
 		onSubmit: (values) => {
 			localStorage.setItem('user', JSON.stringify(values));
 			alert(JSON.stringify(values, null, 2));
+			navigate('/login');
 		},
 	});
 	return (

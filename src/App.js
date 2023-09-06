@@ -20,15 +20,11 @@ function App() {
 	return (
 		<div className='App'>
 			<Routes>
-				{/* {isAuthenticated && <Route exact path='/' element={<Home auth={auth} />} />} */}
-				<Route path='/' element={<ProtectedRoutes isLoggedIn={isAuthenticated} />} />
-				{auth === undefined ||
-					(auth === null && (
-						<>
-							<Route exact path='/login' element={<Login />} />
-							<Route exact path='/signup' element={<Signup />} />
-						</>
-					))}
+				<Route path='/' element={<ProtectedRoutes Component={Home} auth={auth} />} />
+
+				<Route exact path='/login' element={<Login />} />
+				<Route exact path='/signup' element={<Signup />} />
+
 				<Route />
 			</Routes>
 		</div>

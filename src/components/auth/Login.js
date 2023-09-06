@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Input from '../common/Input';
 import { useFormik } from 'formik';
 import { inputFieldsLogin } from '../../utils/DataHelpers';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const loginSchema = Yup.object().shape({
 	email: Yup.string().email('Invalid email').required('Required'),
@@ -11,13 +11,16 @@ const loginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+	const navigate = useNavigate();
 	const formik = useFormik({
 		initialValues: {
 			email: '',
 			password: '',
 		},
 		validationSchema: loginSchema,
-		onSubmit: (values) => {},
+		onSubmit: (values) => {
+			navigate('/');
+		},
 	});
 
 	return (
