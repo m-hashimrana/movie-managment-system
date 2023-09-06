@@ -19,7 +19,6 @@ const Header = () => {
 		setUser(usr);
 	}, []);
 
-	console.log('auth from header ', user);
 	return (
 		<div className='header'>
 			<div className='imgWrapper'>

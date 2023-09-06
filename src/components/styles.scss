@@ -16,7 +16,6 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		padding-right: 30px;
-
 		.imgWrapper {
 			width: 130px;
 			height: 100px;
@@ -24,6 +23,30 @@ body {
 		.userProfile {
 			width: 40px;
 			height: 40px;
+			position: relative;
+			.profileDropDown {
+				background-color: #ccc;
+				position: absolute;
+				right: -5px;
+				padding: 5px 10px;
+				p {
+					font-size: 14px;
+					font-weight: 700;
+				}
+				.email {
+					font-weight: 400;
+					margin: 8px auto;
+				}
+				button {
+					width: 80%;
+					padding: 3px;
+					border: 0;
+					border-radius: 6px;
+					font-size: 13px;
+					font-weight: 500;
+					color: red;
+				}
+			}
 		}
 	}
 	.listingWrapper {
