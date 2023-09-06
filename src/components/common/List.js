@@ -16,7 +16,6 @@ const List = ({ data, category }) => {
 		setModalData(res?.data);
 	};
 
-	console.log('first ', category);
 	return (
 		<>
 			<div className='list'>

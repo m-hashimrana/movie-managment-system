@@ -6,25 +6,30 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './components/Home';
 import ReactModal from 'react-modal';
+import ProtectedRoutes from './components/auth/ProtectedRoutes';
 
 function App() {
 	const [auth, setAuth] = useState();
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	useEffect(() => {
 		setAuth(JSON.parse(localStorage.getItem('user')));
+		setIsAuthenticated(true);
 	}, []);
-
+	console.log('auth', auth);
 	return (
 		<div className='App'>
 			<Routes>
-				<Route exact path='/' element={<Home />} />
+				{/* {isAuthenticated && <Route exact path='/' element={<Home auth={auth} />} />} */}
+				<Route path='/' element={<ProtectedRoutes isLoggedIn={isAuthenticated} />} />
 				{auth === undefined ||
-					(null && (
+					(auth === null && (
 						<>
 							<Route exact path='/login' element={<Login />} />
 							<Route exact path='/signup' element={<Signup />} />
 						</>
 					))}
+				<Route />
 			</Routes>
 		</div>
 	);

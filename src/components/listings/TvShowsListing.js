@@ -8,9 +8,8 @@ const TvShowsListing = () => {
 	const [page, setPage] = useState(1);
 
 	const getList = async () => {
-		const data = await fetchTvShows();
+		const data = await fetchTvShows({ page });
 		setResponse(data?.data);
-		console.log('rees ', data);
 	};
 
 	useEffect(() => {
