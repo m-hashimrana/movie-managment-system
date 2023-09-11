@@ -1,0 +1,286 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-right: 30px;
+		.imgWrapper {
+			width: 130px;
+			height: 100px;
+		}
+		.userProfile {
+			width: 40px;
+			height: 40px;
+			position: relative;
+			.profileDropDown {
+				background-color: #ccc;
+				position: absolute;
+				right: -5px;
+				padding: 5px 10px;
+				p {
+					font-size: 14px;
+					font-weight: 700;
+				}
+				.email {
+					font-weight: 400;
+					margin: 8px auto;
+				}
+				button {
+					width: 80%;
+					padding: 3px;
+					border: 0;
+					border-radius: 6px;
+					font-size: 13px;
+					font-weight: 500;
+					color: red;
+				}
+			}
+		}
+	}
+	.listingWrapper {
+		background-color: gray;
+		margin: 10px 20px;
+		.listHeader {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 30px 20px 0;
+			h1 {
+				margin: 20px 0 10px;
+			}
+			.input {
+				height: 30px;
+				width: 30%;
+				position: relative;
+				input {
+					color: #fff;
+					border: 0;
+					outline: none;
+					padding-left: 40px;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(50, 50, 93, 0.5);
+
+					&::placeholder {
+						color: #fff;
+					}
+				}
+				&::before {
+					content: '';
+					position: absolute;
+					width: 30px;
+					height: 30px;
+					background-image: url('../assets/searchIcon.png');
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 16px;
+				}
+			}
+		}
+		.list {
+			width: 100%;
+			max-height: 450px;
+			overflow-y: scroll;
+			.grid {
+				display: grid;
+				grid-template-columns: auto auto auto auto;
+				gap: 20px;
+				padding: 20px 10px;
+				justify-content: center;
+				.card {
+					text-align: center;
+					max-width: 220px;
+					box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+					.cardImageWrapper {
+						width: 220px;
+						height: 200px;
+						margin: 0 auto;
+						img {
+							border-radius: 12px;
+							object-fit: fill;
+						}
+					}
+					.title {
+						color: #fff;
+						font-size: 14px;
+						font-weight: 600;
+						margin: 6px 0;
+					}
+					.date {
+						color: #ccc;
+						font-size: 12px;
+						font-weight: 600;
+						display: block;
+					}
+					.likeButton {
+						background-color: wheat;
+						color: blue;
+						width: 100px;
+						height: 30px;
+						border-radius: 4px;
+						margin: 10px auto;
+						border: 0;
+						outline: 0;
+					}
+				}
+			}
+		}
+	}
+	.form {
+		height: 100vh;
+		width: 60%;
+		margin: 20px auto;
+		label {
+			margin-bottom: 0.5rem;
+			text-align: left;
+		}
+		input {
+			padding: 0.5rem;
+			font-size: 1rem;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			outline: none;
+		}
+		.error {
+			color: red;
+			text-align: left;
+			font-size: 12px;
+		}
+		button {
+			width: 50%;
+			height: 35px;
+			background-color: green;
+			border: 0;
+			outline: none;
+			color: #fff;
+			border-radius: 8px;
+			cursor: pointer;
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
+	.pagination-wrapper {
+		background-color: gray;
+		padding: 10px;
+
+		.pagination {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			a {
+				padding: 2px;
+				color: #fff;
+				font-weight: 600;
+				border: 1px solid darkgray;
+				cursor: pointer;
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+			.disabled-link {
+				pointer-events: none;
+				opacity: 0.5;
+				cursor: default;
+			}
+			ul {
+				list-style: none;
+				li {
+					span {
+						border: 1px solid darkgray;
+						padding: 2px 5px;
+						color: #fff;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+	.ReactModalPortal {
+		.ReactModal__Body--open {
+			overflow-y: hidden !important;
+		}
+		.ReactModal__Overlay {
+			background-color: rgba(0, 0, 0, 0.7) !important;
+			.ReactModal__Content {
+				width: 60%;
+				height: 70vh;
+				background-color: #ccc;
+				position: absolute;
+				top: 50% !important;
+				left: 50% !important;
+				right: auto !important;
+				bottom: auto !important;
+				transform: translate(-50%, -50%) !important;
+				border: none !important;
+				border-radius: 20px;
+				padding: 10px;
+				display: flex;
+				.loader {
+					position: relative;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.detailImageWrapper {
+					flex: 0 0 45%;
+					width: 45%;
+					height: 100%;
+					margin-right: 8px;
+					img {
+						object-fit: cover !important;
+					}
+				}
+				.details {
+					flex: 1;
+					overflow-y: scroll;
+					span {
+						font-size: 12px;
+					}
+					h3 {
+						margin: 5px 0;
+					}
+					.modalEnrtyName {
+						font-size: 32px;
+						text-align: left;
+						font-weight: 600;
+					}
+					.genre {
+						min-width: 30px;
+						background-color: mediumseagreen;
+						margin-right: 20px;
+						padding: 2px 5px;
+						border-radius: 10px;
+					}
+					.seasonAttributes {
+						display: flex;
+						align-items: center;
+						margin-top: 10px;
+						h5 {
+							flex: 0 0 60%;
+						}
+						h6 {
+							flex: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
