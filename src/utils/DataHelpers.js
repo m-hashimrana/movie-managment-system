@@ -39,17 +39,15 @@ export const inputFieldsLogin = [
 	},
 ];
 
-export const entryAttributes = () => {
-	return {
-		movie: {
-			title: 'original_title',
-			releaseDate: 'Release Date',
-			date: 'release_date',
-		},
-		tv: {
-			title: 'name',
-			releaseDate: 'First Air Date',
-			date: 'first_air_date',
-		},
-	};
+export const entryAttributes = {
+	movie: {
+		title: 'original_title',
+		releaseDate: 'Release Date',
+		date: 'release_date',
+	},
+	tv: {
+		title: 'name',
+		releaseDate: 'First Air Date',
+		date: 'first_air_date',
+	},
 };

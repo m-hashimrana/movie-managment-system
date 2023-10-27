@@ -5,7 +5,6 @@ import moment from 'moment';
 import { BounceLoader, CircleLoader, ClipLoader, FadeLoader, HashLoader } from 'react-spinners';
 
 const EntryDetails = ({ attribute, data, category }) => {
-	console.log('....', [data]);
 	return (
 		<div className='details'>
 			<span className='modalEnrtyName'>{data?.[attribute?.title]}</span>
@@ -36,7 +35,7 @@ const EntryDetails = ({ attribute, data, category }) => {
 };
 
 const DetailsModal = ({ isModalOpen, setIsModalOpen, data, category, setData, isLoading }) => {
-	const attribute = entryAttributes()[category];
+	const attribute = entryAttributes?.category;
 
 	const handleModalClose = () => {
 		setIsModalOpen(false);

@@ -21,7 +21,6 @@ function App() {
 		<div className='App'>
 			<Routes>
 				<Route path='/' element={<ProtectedRoutes Component={Home} auth={auth} />} />
-
 				<Route exact path='/login' element={<Login />} />
 				<Route exact path='/signup' element={<Signup />} />
 

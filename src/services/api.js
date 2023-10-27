@@ -33,8 +33,8 @@ export const fetchDetails = (id, category) => {
 	});
 };
 
-export const searchMovie = (params) => {
-	return axios.get(`https://api.themoviedb.org/3/search/movie?query=${params?.searchedEntry}&include_adult=false`, {
+export const search = (params) => {
+	return axios.get(`https://api.themoviedb.org/3/search/multi?query=${params?.searchEntry}&include_adult=false`, {
 		params,
 		headers: {
 			Authorization:

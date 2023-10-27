@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import Header from './header/Header';
 import MovieListing from './listings/MovieListing';
 import TvShowsListing from './listings/TvShowsListing';
+import Search from './Search';
 
-const Home = (props) => {
-	// const { auth } = props;
-	const authenticateduser = localStorage.getItem('user');
-	console.log(authenticateduser, 'ggggggg');
-	// console.log('prop from home ', auth);
+const Home = () => {
 	return (
 		<>
 			<Header />
+			<Search />
 			<MovieListing />
 			<TvShowsListing />
 		</>
