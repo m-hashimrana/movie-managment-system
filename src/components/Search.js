@@ -10,7 +10,7 @@ const Search = () => {
 		const searchedResults = await search({ searchEntry: e.target.value });
 		setsearchedEntry(searchedResults);
 	};
-	console.log('searched   ', searchedEntry);
+
 	const getSuggestion = (item) => {
 		const key = entryAttributes[item?.media_type].title;
 		return item[key];

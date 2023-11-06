@@ -62,14 +62,18 @@ body {
 			height: 100%;
 		}
 		input {
-			background-color: #ddd;
+			background-color: #888ede;
+			color: #fff;
 			width: 60%;
 			border-radius: 8px;
 			border: 1px solid #ccc;
-			height: 30px;
+			height: 40px;
 			outline: none;
 			padding: 5px;
 			padding-left: 60px;
+			&::placeholder {
+				color: #fff;
+			}
 		}
 	}
 	.suggestionWrapper {
@@ -77,11 +81,14 @@ body {
 		width: 60%;
 		margin: 0 auto;
 		overflow-y: scroll;
+		background-color: #888ede;
+
 		.suggestions {
 			display: inline-flex;
 			justify-content: center;
 			border: 1px solid;
 			width: 100%;
+			color: #fff;
 			.suggestionCard {
 				padding: 5px 10px;
 				display: flex;

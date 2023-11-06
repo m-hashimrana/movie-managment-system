@@ -16,7 +16,7 @@ function App() {
 		setAuth(JSON.parse(localStorage.getItem('user')));
 		setIsAuthenticated(true);
 	}, []);
-	console.log('auth', auth);
+
 	return (
 		<div className='App'>
 			<Routes>
