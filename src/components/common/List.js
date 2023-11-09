@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchDetails } from '../../services/api';
 import DetailsModal from '../modals/DetailsModal';
 
-const List = ({ data, setData, category, handleLikeClick }) => {
+const List = ({ data, setData, activeGenre, category, handleLikeClick }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [modalData, setModalData] = useState();
 	const [isLoading, setIsLoading] = useState(false);
@@ -15,19 +15,10 @@ const List = ({ data, setData, category, handleLikeClick }) => {
 		setModalData(res?.data);
 	};
 
-	// const handleLikeClick = (e, card) => {
-	// 	console.log("cafd ", typeof card)
-	// 	e.stopPropagation();
-	// 	setData(data?.results?.map((item) => {
-	// 		if (item?.id === card?.id) {
-	// 			console.log('firsttttttttttttttt', card?.id, item?.id);
-	// 			return { ...item, isLiked: true };
-	// 		}
+	const filter = data?.results?.map((item => (item?.genre_ids?.map((genre => console.log('hello ', genre, activeGenre?.id)))
+	)))
+	console.log('data from child ', activeGenre, filter);
 
-	// 		else return item
-	// 	}));
-	// }
-	console.log('data from child ', data)
 
 
 	return (

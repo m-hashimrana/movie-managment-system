@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import Modal from 'react-modal';
 import { entryAttributes } from '../../utils/DataHelpers';
 import moment from 'moment';
-import { BounceLoader, CircleLoader, ClipLoader, FadeLoader, HashLoader } from 'react-spinners';
+import { CircleLoader } from 'react-spinners';
 
 const EntryDetails = ({ attribute, data, category }) => {
 	return (

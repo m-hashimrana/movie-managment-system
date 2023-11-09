@@ -9,8 +9,23 @@ const TvShowsListing = () => {
 
 	const getList = async () => {
 		const data = await fetchTvShows({ page });
-		setResponse(data?.data);
+		const manipulatedData = data?.data?.results?.map((item) => ({ ...item, isLiked: false }))
+		setResponse({ ...data?.data, results: manipulatedData });
 	};
+
+	const handleLikeClick = (e, card) => {
+		e.stopPropagation();
+		let likedMovie = response?.results?.map((item) => (
+			item?.id === card?.id ? ({ ...item, isLiked: true }) : (item)
+		))
+		setResponse({
+			"page": 1,
+			"results": likedMovie,
+			"total_pages": 40857,
+			"total_results": 817137
+		})
+	}
+
 
 	useEffect(() => {
 		try {
@@ -23,7 +38,7 @@ const TvShowsListing = () => {
 	return (
 		<div className='listingWrapper'>
 			<h1>TV Shows</h1>
-			<List data={response} category={'tv'} />
+			<List data={response} category={'tv'} handleLikeClick={handleLikeClick} />
 			<Pagination page={page} setPage={setPage} totalPages={response?.total_pages} />
 		</div>
 	);
